@@ -22,7 +22,7 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .cors(Customizer.withDefaults())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**", "/error").permitAll()
+                .requestMatchers("/api/auth/**", "/api/me", "/error").permitAll()
                 .anyRequest().authenticated())
             .oauth2Login(Customizer.withDefaults())
             .logout(logout -> logout.logoutSuccessUrl("http://localhost:5173"));
